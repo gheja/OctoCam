@@ -20,7 +20,6 @@
 
   <body>
     <header class="container">
-      <h3 class="text-muted"></h3>
       {% block header %}
       <h1>OctoCam</h1>
       {% endblock %}
@@ -71,56 +70,6 @@
           <button onclick="copyUrl('snapshotUrl')">Copy</button>
         </div>
       </div>
-      <!-- <script>        
-        // runs pullCameras in static/script.js, retrieves selected camera value, width, height, and makes server request to see if online, and then shows urls
-        const pullLinks = async (event) => {
-          event.preventDefault();
-          response = await pullCameras();
-          const selectedCameraValue = document.querySelector(
-            'select[name="userCameras"]'
-          ).value;
-          const width = document.getElementById("width").value;
-          const height = document.getElementById("height").value;
-          response = await pullStreams(selectedCameraValue, width, height);
-          if (response === "error") {
-            alert("Error");
-          } else {
-            const streamUrlLabel = document.querySelector(
-              'label[id="streamUrl"]'
-            );
-            const snapshotUrlLabel = document.querySelector(
-              'label[id="snapshotUrl"]'
-            );
-            streamUrlLabel.innerText = response["streamUrl"];
-            snapshotUrlLabel.innerText = response["snapshotUrl"];
-          }
-        };
-        // When button is pushed, copies the url to user's clipboard
-        const copyUrl = async (urlType) => {
-          const urlLabel = document.getElementById(urlType);
-          const url = urlLabel.textContent;
-
-          const tempInput = document.createElement("input");
-          tempInput.setAttribute("type", "text");
-          tempInput.setAttribute("value", url);
-
-          document.body.appendChild(tempInput);
-          tempInput.select();
-
-          try {
-            const success = document.execCommand("copy");
-            if (success) {
-              alert("Content copied to clipboard");
-            } else {
-              throw new Error();
-            }
-          } catch (err) {
-            alert("Failed to copy: ", err);
-          } finally {
-            document.body.removeChild(tempInput);
-          }
-        };
-      </script> -->
       {% endblock %}
     </div>
 
