@@ -5,3 +5,4 @@ venv/
 app.spec
 OctoCam.spec
 node_modules/
+package-lock.json
