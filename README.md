@@ -3,6 +3,47 @@
 OctoCam is a PyFlaDesk application made to stream and snapshot your webcam. This is designed as an alternative to YawCam usage for
 OctoPrint on Windows computers. To run, download the exe, or use this repo.
 
+## Building
+
+### Web UI scripts
+
+Download and install node.js from [nodejs.org](https://nodejs.org/)
+
+Install the dependencies:
+```
+npm install
+```
+
+Rebuild the scripts:
+```
+npx tsc
+```
+
+### Python
+
+Download and install Python from [python.org](https://www.python.org/).
+
+Prepare the Python virtual environment:
+```
+python -m venv venv
+```
+
+Activate the new Python environment:
+```
+venv\scripts\Activate.ps1
+```
+
+Install the dependencies:
+```
+pip install requirements.txt
+```
+
+Build the executable:
+```
+pyinstaller -F --add-data "templates;templates" --add-data "static;static" app.py
+```
+
+
 ## Usage
 
 Run Pyinstaller with this command to generate a .exe:
